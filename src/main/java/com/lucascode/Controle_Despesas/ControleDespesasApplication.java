@@ -10,7 +10,6 @@ public class ControleDespesasApplication {
 
 		SpringApplication.run(ControleDespesasApplication.class, args);
 
-		System.out.println("Teste");
 	}
 
 }
