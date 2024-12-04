@@ -4,4 +4,8 @@
 
 ## Comandos Docker
 mvn clean package -DskipTests
+
+<h5> Para gerar a imagem do docker </h5>
 docker build -t [nome do container] .
+
+docker run -p8080:8080 [imagem]
