@@ -1,8 +1,15 @@
 package com.lucascode.Controle_Despesas.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.Date;
 
 public class Saldo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long uuid;
     private Double valor;
     private Date data;
 
@@ -10,9 +17,18 @@ public class Saldo {
 
     }
 
-    public Saldo(Double valor, Date data) {
+    public Saldo(Long uuid, Double valor, Date data) {
+        this.uuid = uuid;
         this.valor = valor;
         this.data = data;
+    }
+
+    public Long getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(Long uuid) {
+        this.uuid = uuid;
     }
 
     public Double getValor() {
