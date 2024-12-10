@@ -1,11 +1,13 @@
 package com.lucascode.Controle_Despesas.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.Date;
 
+@Entity
 public class Saldo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
