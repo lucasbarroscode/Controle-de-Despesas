@@ -25,6 +25,9 @@ public class Saldo {
         this.data = data;
     }
 
+    public Saldo(Saldo saldo) {
+    }
+
     public Long getUuid() {
         return uuid;
     }
