@@ -42,6 +42,10 @@ public class SaldoController {
         return saldoService.atualizarSaldo(id, saldo);
     }
 
+    @DeleteMapping("/{id}")
+    public void deletarSaldo(@PathVariable Long id){
+        saldoService.deletarPorId(id);
+    }
 
 
 

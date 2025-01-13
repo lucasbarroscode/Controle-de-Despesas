@@ -2,7 +2,6 @@ package com.lucascode.Controle_Despesas.service;
 
 import com.lucascode.Controle_Despesas.model.Saldo;
 import com.lucascode.Controle_Despesas.repository.SaldoRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,5 +32,8 @@ public class SaldoService {
         return saldoRepository.save(saldo);
     }
 
+    public void deletarPorId(Long id){
+        saldoRepository.deleteById(id);
+    }
 
 }
