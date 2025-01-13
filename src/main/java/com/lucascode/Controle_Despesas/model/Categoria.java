@@ -1,7 +1,16 @@
 package com.lucascode.Controle_Despesas.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Categoria {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long uuid;
     private String nome;
     private String tipo;
 
@@ -9,7 +18,8 @@ public class Categoria {
 
     }
 
-    public Categoria(String nome, String tipo) {
+    public Categoria(Long uuid, String nome, String tipo) {
+        this.uuid = uuid;
         this.nome = nome;
         this.tipo = tipo;
     }
@@ -28,5 +38,13 @@ public class Categoria {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public Long getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(Long uuid) {
+        this.uuid = uuid;
     }
 }
