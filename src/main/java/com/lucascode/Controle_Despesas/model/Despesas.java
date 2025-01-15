@@ -1,11 +1,18 @@
 package com.lucascode.Controle_Despesas.model;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
 public class Despesas {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long uuid;
     private Double valor;
     private Date data;
+    @ManyToOne
     private Categoria categoria;
     private String descricao;
 
@@ -13,7 +20,8 @@ public class Despesas {
 
     }
 
-    public Despesas(Double valor, Date data, Categoria categoria, String descricao) {
+    public Despesas(Long uuid, Double valor, Date data, Categoria categoria, String descricao) {
+        this.uuid = uuid;
         this.valor = valor;
         this.data = data;
         this.categoria = categoria;
@@ -50,5 +58,13 @@ public class Despesas {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Long getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(Long uuid) {
+        this.uuid = uuid;
     }
 }
