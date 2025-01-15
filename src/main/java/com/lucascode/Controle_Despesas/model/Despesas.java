@@ -12,7 +12,7 @@ public class Despesas {
     private Long uuid;
     private Double valor;
     private Date data;
-    @ManyToOne
+    @OneToOne
     private Categoria categoria;
     private String descricao;
 
