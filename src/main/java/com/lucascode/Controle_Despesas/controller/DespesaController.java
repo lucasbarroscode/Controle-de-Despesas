@@ -1,9 +1,7 @@
 package com.lucascode.Controle_Despesas.controller;
 
 import com.lucascode.Controle_Despesas.model.Despesas;
-import com.lucascode.Controle_Despesas.model.Saldo;
 import com.lucascode.Controle_Despesas.service.DespesaService;
-import com.lucascode.Controle_Despesas.service.SaldoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,17 +34,17 @@ public class DespesaController {
     }
 
     @PostMapping()
-    public Despesas salvarSaldo(@RequestBody Despesas despesas){
-        return despesaService.salvarSaldo(despesas);
+    public Despesas salvarDespesa(@RequestBody Despesas despesas){
+        return despesaService.salvarDespesa(despesas);
     }
 
     @PutMapping("/{id}")
-    public Despesas atualizarSaldo(@PathVariable Long id, @Valid @RequestBody Despesas despesas){
-        return despesaService.atualizarSaldo(id, despesas);
+    public Despesas atualizarDespesa(@PathVariable Long id, @Valid @RequestBody Despesas despesas){
+        return despesaService.atualizarDespesa(id, despesas);
     }
 
     @DeleteMapping("/{id}")
-    public void deletarSaldo(@PathVariable Long id){
+    public void deletarDespesa(@PathVariable Long id){
         despesaService.deletarPorId(id);
     }
 

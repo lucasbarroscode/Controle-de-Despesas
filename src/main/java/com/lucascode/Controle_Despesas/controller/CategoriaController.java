@@ -30,17 +30,17 @@ public class CategoriaController {
     }
 
     @PostMapping()
-    public Categoria salvarSaldo(@RequestBody Categoria categoria){
-        return service.salvarSaldo(categoria);
+    public Categoria salvarCategoria(@RequestBody Categoria categoria){
+        return service.salvarCategoria(categoria);
     }
 
     @PutMapping("/{id}")
-    public Categoria atualizarSaldo(@PathVariable Long id, @Valid @RequestBody Categoria categoria){
-        return service.atualizarSaldo(id, categoria);
+    public Categoria atualizarCategoria(@PathVariable Long id, @Valid @RequestBody Categoria categoria){
+        return service.atualizarCategoria(id, categoria);
     }
 
     @DeleteMapping("/{id}")
-    public void deletarSaldo(@PathVariable Long id){
+    public void deletarCategoria(@PathVariable Long id){
         service.deletarPorId(id);
     }
 

@@ -18,10 +18,6 @@ public class RendaController {
     @Autowired
     private RendaService rendaService;
 
-    @GetMapping("/test")
-    public String teste(){
-        return "Renda no ar sua api!!!";
-    }
 
     @GetMapping()
     public List<Renda> listarTodos(){
@@ -35,17 +31,17 @@ public class RendaController {
     }
 
     @PostMapping()
-    public Renda salvarSaldo(@RequestBody Renda renda){
-        return rendaService.salvarSaldo(renda);
+    public Renda salvarRenda(@RequestBody Renda renda){
+        return rendaService.salvarRenda(renda);
     }
 
     @PutMapping("/{id}")
-    public Renda atualizarSaldo(@PathVariable Long id, @Valid @RequestBody Renda renda){
-        return rendaService.atualizarSaldo(id, renda);
+    public Renda atualizarRenda(@PathVariable Long id, @Valid @RequestBody Renda renda){
+        return rendaService.atualizarRenda(id, renda);
     }
 
     @DeleteMapping("/{id}")
-    public void deletarSaldo(@PathVariable Long id){
+    public void deletarRenda(@PathVariable Long id){
         rendaService.deletarPorId(id);
     }
 

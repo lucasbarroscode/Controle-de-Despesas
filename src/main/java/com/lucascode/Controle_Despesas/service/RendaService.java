@@ -14,7 +14,7 @@ public class RendaService {
     @Autowired
     private RendaRepository rendaRepository;
 
-    public Renda salvarSaldo(Renda input){
+    public Renda salvarRenda(Renda input){
         return rendaRepository.save(input);
     }
 
@@ -26,7 +26,7 @@ public class RendaService {
         return rendaRepository.findById(id);
     }
 
-    public Renda atualizarSaldo(Long id, Renda renda){
+    public Renda atualizarRenda(Long id, Renda renda){
         renda.setUuid(id);
         return rendaRepository.save(renda);
     }

@@ -16,7 +16,7 @@ public class CategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
-    public Categoria salvarSaldo(Categoria input){
+    public Categoria salvarCategoria(Categoria input){
         return categoriaRepository.save(input);
     }
 
@@ -28,7 +28,7 @@ public class CategoriaService {
         return categoriaRepository.findById(id);
     }
 
-    public Categoria atualizarSaldo(Long id, Categoria categoria){
+    public Categoria atualizarCategoria(Long id, Categoria categoria){
         categoria.setUuid(id);
         return categoriaRepository.save(categoria);
     }
