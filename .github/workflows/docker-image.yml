@@ -1,25 +1,38 @@
-name: CI-CD
+name: Build and Push Docker Image
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
+    branches:
+      - main
+
 jobs:
-  ci:
-    runs-on: openjdk:17
+  build:
+    runs-on: ubuntu-latest
+    labels:
+      - openjdk:17
+
     steps:
-      - name: Obter código do projeto
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Autenticar no Docker Hub
-        uses: docker/login-action@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          distribution: 'adopt'
+          java-version: '17'
 
-      - name: Contrução e envio da Imagem Docker
-        uses: docker/build-push-action@v6
+      - name: Build with Maven
+        run: mvn clean package -DskipTests=true
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: lucasbarroscode/controle-despesas:latest
+          tags: lucassss1997/controle-despesa:latest
