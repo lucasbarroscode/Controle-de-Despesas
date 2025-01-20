@@ -8,8 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    labels:
-      - openjdk:17
 
     steps:
       - name: Checkout code
