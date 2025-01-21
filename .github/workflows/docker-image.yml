@@ -36,11 +36,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t lucasbarroscode/githubaction:${{ steps.set_build_number.outputs.BUILD_NUMBER }} .
+          docker build -t lucassss1997/controle-despesas:${{ steps.set_build_number.outputs.BUILD_NUMBER }} .
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push lucasbarroscode/githubaction:${{ steps.set_build_number.outputs.BUILD_NUMBER }}
+          docker push lucassss1997/controle-despesas:${{ steps.set_build_number.outputs.BUILD_NUMBER }}
 
   deploy:
     name: Deploy Docker Image
@@ -62,7 +62,7 @@ jobs:
 
       - name: Pull Docker image from Docker Hub
         run: |
-          sudo docker pull lucasbarroscode/githubaction:${{ steps.set_build_number.outputs.BUILD_NUMBER }}
+          sudo docker pull lucassss1997/controle-despesas:${{ steps.set_build_number.outputs.BUILD_NUMBER }}
 
       - name: Stop and remove existing container
         run: |
@@ -70,4 +70,4 @@ jobs:
 
       - name: Run Docker container
         run: |
-          sudo docker run -d --name your-container-name -p 8080:8080 lucasbarroscode/githubaction:${{ steps.set_build_number.outputs.BUILD_NUMBER }}
+          sudo docker run -d --name your-container-name -p 8080:8080 lucassss1997/controle-despesas:${{ steps.set_build_number.outputs.BUILD_NUMBER }}
