@@ -9,3 +9,5 @@ mvn clean package -DskipTests
 docker build -t [nome do container] .
 
 docker run -p8080:8080 [imagem]
+
+teste
