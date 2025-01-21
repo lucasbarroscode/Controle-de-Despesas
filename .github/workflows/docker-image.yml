@@ -29,8 +29,6 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    env:
-      IMG_NAME: ${{ github.repository }}
 
     steps:
       - uses: actions/checkout@v2
