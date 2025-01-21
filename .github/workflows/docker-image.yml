@@ -36,11 +36,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t jyotiranswain/githubaction:${{ steps.set_build_number.outputs.BUILD_NUMBER }} .
+          docker build -t lucasbarroscode/Controle-de-Despesas:${{ steps.set_build_number.outputs.BUILD_NUMBER }} .
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push jyotiranswain/githubaction:${{ steps.set_build_number.outputs.BUILD_NUMBER }}
+          docker push lucasbarroscode/Controle-de-Despesas:${{ steps.set_build_number.outputs.BUILD_NUMBER }}
 
   deploy:
     name: Deploy Docker Image
