@@ -5,26 +5,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import java.util.Date;
-
 @Entity
-public class Saldo {
+public class Transacao {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long uuid;
     private Double valor;
 
 
-    public Saldo(){
-
+    public Transacao() {
     }
 
-    public Saldo(Long uuid, Double valor) {
+    public Transacao(Long uuid, Double valor) {
         this.uuid = uuid;
         this.valor = valor;
-    }
-
-    public Saldo(Saldo saldo) {
     }
 
     public Long getUuid() {
@@ -42,5 +37,4 @@ public class Saldo {
     public void setValor(Double valor) {
         this.valor = valor;
     }
-
 }

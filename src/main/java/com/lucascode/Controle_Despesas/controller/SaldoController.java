@@ -16,36 +16,14 @@ public class SaldoController {
     @Autowired
     private SaldoService saldoService;
 
-    @GetMapping("/test")
-    public String teste(){
-        return "Está no ar sua api!!!";
+    @GetMapping
+    public Saldo obterSaldo() {
+        return saldoService.obterSaldoAtual();
     }
 
-    @GetMapping()
-    public List<Saldo> listarTodos(){
-        return saldoService.listarTodos();
-    }
 
-    //todo inserir algo para caso o id passado não for cadastrado
-    @GetMapping("/{id}")
-    public Optional<Saldo> listarPorId(@PathVariable Long id){
-        return saldoService.listarPorId(id);
-    }
 
-    @PostMapping()
-    public Saldo salvarSaldo(@RequestBody Saldo saldo){
-        return saldoService.salvarSaldo(saldo);
-    }
 
-    @PutMapping("/{id}")
-    public Saldo atualizarSaldo(@PathVariable Long id, @Valid @RequestBody Saldo saldo){
-        return saldoService.atualizarSaldo(id, saldo);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deletarSaldo(@PathVariable Long id){
-        saldoService.deletarPorId(id);
-    }
 
 
 
