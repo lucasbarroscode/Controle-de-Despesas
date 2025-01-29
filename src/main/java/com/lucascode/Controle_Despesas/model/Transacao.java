@@ -1,9 +1,9 @@
 package com.lucascode.Controle_Despesas.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
 
 @Entity
 public class Transacao {
@@ -12,14 +12,36 @@ public class Transacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long uuid;
     private Double valor;
+//    @OneToOne
+//    private Categoria categoria;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataTransacao;
+
+
 
 
     public Transacao() {
     }
 
-    public Transacao(Long uuid, Double valor) {
+//    public Transacao(Long uuid, Double valor, Categoria categoria) {
+//        this.uuid = uuid;
+//        this.valor = valor;
+//        this.categoria = categoria;
+//    }
+
+
+    public Transacao(Long uuid, Double valor, LocalDate dataTransacao) {
         this.uuid = uuid;
         this.valor = valor;
+        this.dataTransacao = dataTransacao;
+    }
+
+    public LocalDate getDataTransacao() {
+        return dataTransacao;
+    }
+
+    public void setDataTransacao(LocalDate dataTransacao) {
+        this.dataTransacao = dataTransacao;
     }
 
     public Long getUuid() {
@@ -37,4 +59,12 @@ public class Transacao {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
+//    public Categoria getCategoria() {
+//        return categoria;
+//    }
+//
+//    public void setCategoria(Categoria categoria) {
+//        this.categoria = categoria;
+//    }
 }

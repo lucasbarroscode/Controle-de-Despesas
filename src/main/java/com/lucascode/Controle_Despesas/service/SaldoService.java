@@ -27,6 +27,7 @@ public class SaldoService {
         return saldoRepository.save(saldo);
     }
 
+    //todo cadastrar quando não achar nada para não retornar null
     public Saldo obterSaldoAtual(){
         return saldoRepository.findById(1L).orElse(new Saldo());
     }

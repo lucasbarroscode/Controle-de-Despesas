@@ -14,6 +14,9 @@ public class TransacaoService {
     @Autowired
     private SaldoService saldoService;
 
+
+    //todo colocar um validor se categoria não existir
+    //orElseThrow(() -> new RuntimeException("Transação não encontrada"));
     public Transacao criarTransacao(Transacao transacao) {
         Transacao novaTransacao = transacaoRepository.save(transacao);
         saldoService.atualizarSaldo(novaTransacao);
