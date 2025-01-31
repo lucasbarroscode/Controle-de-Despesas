@@ -1,6 +1,7 @@
 package com.lucascode.Controle_Despesas.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -14,7 +15,7 @@ public class Transacao {
     private Double valor;
 //    @OneToOne
 //    private Categoria categoria;
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonIgnoreProperties
     private LocalDate dataTransacao;
 
 

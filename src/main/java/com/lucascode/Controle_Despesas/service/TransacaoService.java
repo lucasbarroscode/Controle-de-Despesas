@@ -5,6 +5,9 @@ import com.lucascode.Controle_Despesas.repository.TransacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Service
 public class TransacaoService {
 
@@ -18,6 +21,11 @@ public class TransacaoService {
     //todo colocar um validor se categoria não existir
     //orElseThrow(() -> new RuntimeException("Transação não encontrada"));
     public Transacao criarTransacao(Transacao transacao) {
+
+        LocalDateTime agora = LocalDateTime.now();
+        if(transacao.getDataTransacao() == null){
+            transacao.setDataTransacao(LocalDate.from(agora));
+        }
         Transacao novaTransacao = transacaoRepository.save(transacao);
         saldoService.atualizarSaldo(novaTransacao);
         return novaTransacao;
