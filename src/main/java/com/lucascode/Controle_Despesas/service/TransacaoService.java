@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import static org.springframework.util.ObjectUtils.isEmpty;
+
 @Service
 public class TransacaoService {
 
@@ -23,7 +25,7 @@ public class TransacaoService {
     public Transacao criarTransacao(Transacao transacao) {
 
         LocalDateTime agora = LocalDateTime.now();
-        if(transacao.getDataTransacao() == null){
+        if(isEmpty(transacao.getDataTransacao())){
             transacao.setDataTransacao(LocalDate.from(agora));
         }
         Transacao novaTransacao = transacaoRepository.save(transacao);

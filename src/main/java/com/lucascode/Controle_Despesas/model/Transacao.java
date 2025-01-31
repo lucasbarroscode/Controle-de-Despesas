@@ -16,6 +16,7 @@ public class Transacao {
 //    @OneToOne
 //    private Categoria categoria;
     @JsonIgnoreProperties
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataTransacao;
 
 
