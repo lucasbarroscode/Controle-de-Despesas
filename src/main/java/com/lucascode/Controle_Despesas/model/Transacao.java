@@ -1,6 +1,7 @@
 package com.lucascode.Controle_Despesas.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -13,8 +14,9 @@ public class Transacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long uuid;
     private Double valor;
-//    @OneToOne
-//    private Categoria categoria;
+    @OneToOne
+    @JsonIgnoreProperties
+    private Categoria categoria;
     @JsonIgnoreProperties
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataTransacao;
@@ -25,16 +27,10 @@ public class Transacao {
     public Transacao() {
     }
 
-//    public Transacao(Long uuid, Double valor, Categoria categoria) {
-//        this.uuid = uuid;
-//        this.valor = valor;
-//        this.categoria = categoria;
-//    }
-
-
-    public Transacao(Long uuid, Double valor, LocalDate dataTransacao) {
+    public Transacao(Long uuid, Double valor, Categoria categoria, LocalDate dataTransacao) {
         this.uuid = uuid;
         this.valor = valor;
+        this.categoria = categoria;
         this.dataTransacao = dataTransacao;
     }
 
@@ -62,11 +58,11 @@ public class Transacao {
         this.valor = valor;
     }
 
-//    public Categoria getCategoria() {
-//        return categoria;
-//    }
-//
-//    public void setCategoria(Categoria categoria) {
-//        this.categoria = categoria;
-//    }
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }

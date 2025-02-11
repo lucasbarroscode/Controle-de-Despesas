@@ -1,6 +1,7 @@
 package com.lucascode.Controle_Despesas.service;
 
 import com.lucascode.Controle_Despesas.model.Transacao;
+import com.lucascode.Controle_Despesas.repository.CategoriaRepository;
 import com.lucascode.Controle_Despesas.repository.TransacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,11 @@ public class TransacaoService {
     private TransacaoRepository transacaoRepository;
 
     @Autowired
+    private CategoriaRepository categoriaRepository;
+
+
+
+    @Autowired
     private SaldoService saldoService;
 
 
@@ -28,6 +34,9 @@ public class TransacaoService {
         if(isEmpty(transacao.getDataTransacao())){
             transacao.setDataTransacao(LocalDate.from(agora));
         }
+
+        //todo condicional de que se a categoria existe, não precisa criar uma nova com o mesmo nome
+        categoriaRepository.save(transacao.getCategoria());
         Transacao novaTransacao = transacaoRepository.save(transacao);
         saldoService.atualizarSaldo(novaTransacao);
         return novaTransacao;
