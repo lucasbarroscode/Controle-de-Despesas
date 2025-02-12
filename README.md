@@ -1,6 +1,4 @@
-![Diagrama_Controle_Despesa-Página-2.drawio.png](src%2Fmain%2Fresources%2Fimages%2FDiagrama_Controle_Despesa-P%C3%A1gina-2.drawio.png)
-
-
+![Diagrama_Controle_Despesa-Página-2.jpg](src%2Fmain%2Fresources%2Fimages%2FDiagrama_Controle_Despesa-P%C3%A1gina-2.jpg)
 
 ## Comandos Docker
 mvn clean package -DskipTests
